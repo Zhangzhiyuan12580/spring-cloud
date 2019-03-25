@@ -1,0 +1,28 @@
+server:
+  port: 1003
+spring:
+  application:
+    name: spring-cloud-bookstore
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+
+
+eureka:
+  instance:
+    ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:1001/eureka
+
+logging:
+  level: info
+
+#mybatis config
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.spring.cloud.bookstore.domain.*

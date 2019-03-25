@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.cloud.bookstore.mapper.BookMapper">
+
+    <resultMap id="BaseResultMap" type="com.spring.cloud.bookstore.domain.Book">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="authorId" jdbcType="VARCHAR" property="authorId"/>
+        <result column="bookType" jdbcType="VARCHAR" property="bookType"/>
+        <result column="price" jdbcType="DOUBLE" property="price"/>
+    </resultMap>
+
+    <select id="findOne" resultType="com.spring.cloud.bookstore.domain.Book">
+        select * from book where id = #{id}
+    </select>
+
+</mapper>

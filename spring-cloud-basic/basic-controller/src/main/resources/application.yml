@@ -1,0 +1,29 @@
+server:
+  port: 1002
+spring:
+  application:
+    name: spring-cloud-basic
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        #命名规则保持原有字段方式，不设置如果某个字段里面有大写字母，会变为小写，并且添加上下划线
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+eureka:
+  instance:
+    ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:1001/eureka
+
+logging:
+  level: info

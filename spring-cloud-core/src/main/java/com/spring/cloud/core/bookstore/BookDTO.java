@@ -1,5 +1,7 @@
 package com.spring.cloud.core.bookstore;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -10,33 +12,24 @@ import lombok.EqualsAndHashCode;
  **/
 @EqualsAndHashCode
 @Data
+@ApiModel(value = "BookDTO", description = "书籍信息DTO")
 public class BookDTO {
 
+    @ApiModelProperty("书籍Id")
     private Long id;
 
-    /**
-     * 书名称
-     */
+    @ApiModelProperty("书名称")
     private String name;
 
-    /**
-     * 书的作者
-     */
+    @ApiModelProperty("书的作者")
     private String authorId;
 
-    /**
-     * 书的作者
-     */
+    @ApiModelProperty("书的作者")
     private String authorName;
 
-    /**
-     * 书类型
-     */
+    @ApiModelProperty("书类型")
     private String bookType;
 
-    /**
-     * 价格
-     */
+    @ApiModelProperty("价格")
     private Double price;
-
 }

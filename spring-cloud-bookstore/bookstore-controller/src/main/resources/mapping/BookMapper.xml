@@ -11,8 +11,27 @@
         <result column="price" jdbcType="DOUBLE" property="price"/>
     </resultMap>
 
+    <sql id="Base_Column_List">
+        id, name, authorId, bookType, price
+    </sql>
+
     <select id="findOne" resultType="com.spring.cloud.bookstore.domain.Book">
-        select * from book where id = #{id}
+        select
+        <include refid="Base_Column_List"/>
+        from book
+        where id = #{id}
     </select>
 
+    <select id="findPage" resultMap="BaseResultMap" parameterType="com.spring.cloud.core.bookstore.BookDTO">
+        select
+        <include refid="Base_Column_List"/>
+        from book
+        where 1=1
+        <if test="name != null ">
+            and name = #{name}
+        </if>
+        <if test="authorId != null ">
+            and authorId = #{authorId}
+        </if>
+    </select>
 </mapper>

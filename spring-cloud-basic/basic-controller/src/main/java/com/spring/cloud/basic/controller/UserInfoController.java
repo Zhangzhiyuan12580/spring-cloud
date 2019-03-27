@@ -25,10 +25,11 @@ public class UserInfoController {
 
     @ApiOperation(value = "用户分页接口", notes = "用户分页接口", tags = "用户相关Api")
     @GetMapping("pageList")
-    public Page<UserInfoDTO> pageList(@ApiParam("名称") String name,
-                                      @ApiParam("年龄") Integer age,
-                                      Pageable pageable) {
-        return userInfoService.findPage(pageable, name, age);
+    public RestResponse<Page<UserInfoDTO>> pageList(@ApiParam("名称") String name,
+                                                    @ApiParam("年龄") Integer age,
+                                                    Pageable pageable) {
+        Page<UserInfoDTO> page = userInfoService.findPage(pageable, name, age);
+        return RestResponse.ok(page);
     }
 
 

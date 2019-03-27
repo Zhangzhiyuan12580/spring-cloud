@@ -1,6 +1,6 @@
 package com.spring.cloud.basic.feign;
 
-import com.spring.cloud.core.basic.UserInfoDTO;
+import com.spring.cloud.basic.dto.UserInfoDTO;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @Description
  **/
 @Component
-public class BasicFeignFallBack implements IBasicFeign {
+public class BasicFeignFallBack implements BasicFeign {
     @Override
     public UserInfoDTO findById(Long id) {
         return null;

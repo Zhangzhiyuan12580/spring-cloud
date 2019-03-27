@@ -3,16 +3,11 @@ package com.spring.cloud.bookstore.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * @Author zzy
- * @Date 2019-03-24-10:15
- * @Description
- **/
-@EqualsAndHashCode
-@Data
-public class Book {
+import java.math.BigDecimal;
 
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+@Data
+public class Book extends BaseDomain{
 
     /**
      * 书名称
@@ -22,15 +17,15 @@ public class Book {
     /**
      * 书的作者
      */
-    private String authorId;
+    private Long authorId;
 
     /**
      * 书类型
      */
-    private String bookType;
+    private Long bookTypeId;
 
     /**
      * 价格
      */
-    private Double price;
+    private BigDecimal price;
 }

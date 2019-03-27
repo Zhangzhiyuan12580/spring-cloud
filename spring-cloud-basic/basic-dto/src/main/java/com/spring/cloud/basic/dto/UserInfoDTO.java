@@ -1,4 +1,4 @@
-package com.spring.cloud.core.basic;
+package com.spring.cloud.basic.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -7,22 +7,15 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-/**
- * @ClassName: UserInfoDTO
- * @Author: zzy
- * @Date: 2019/3/22 12:34
- * @Version: 1.2
- * @Description:
- */
 @Data
 @ApiModel(description = "用户信息DTO")
 public class UserInfoDTO {
 
-    public interface UserInfoUpdateGroup {
+    public interface UpdateGroup {
     }
 
     @ApiModelProperty("用户Id")
-    @NotNull(groups = {UserInfoUpdateGroup.class})
+    @NotNull(groups = UpdateGroup.class)
     private Long id;
 
     @ApiModelProperty("用户名称")

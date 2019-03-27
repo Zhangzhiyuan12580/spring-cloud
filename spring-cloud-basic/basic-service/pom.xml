@@ -18,6 +18,10 @@
             <groupId>com.spring.cloud</groupId>
             <artifactId>basic-dao</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.spring.cloud</groupId>
+            <artifactId>basic-dto</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

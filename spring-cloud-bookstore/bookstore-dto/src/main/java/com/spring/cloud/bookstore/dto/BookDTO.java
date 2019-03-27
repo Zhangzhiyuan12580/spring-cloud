@@ -1,18 +1,13 @@
-package com.spring.cloud.core.bookstore;
+package com.spring.cloud.bookstore.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-/**
- * @Author zzy
- * @Date 2019-03-24-10:38
- * @Description
- **/
-@EqualsAndHashCode
+import java.math.BigDecimal;
+
 @Data
-@ApiModel(value = "BookDTO", description = "书籍信息DTO")
+@ApiModel(description = "书籍信息DTO")
 public class BookDTO {
 
     @ApiModelProperty("书籍Id")
@@ -22,7 +17,7 @@ public class BookDTO {
     private String name;
 
     @ApiModelProperty("书的作者")
-    private String authorId;
+    private Long authorId;
 
     @ApiModelProperty("书的作者")
     private String authorName;
@@ -31,5 +26,5 @@ public class BookDTO {
     private String bookType;
 
     @ApiModelProperty("价格")
-    private Double price;
+    private BigDecimal price;
 }

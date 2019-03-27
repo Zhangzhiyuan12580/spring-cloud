@@ -16,6 +16,7 @@
     <description>spring-cloud-basic</description>
 
     <modules>
+        <module>basic-dto</module>
         <module>basic-domain</module>
         <module>basic-dao</module>
         <module>basic-service</module>
@@ -27,12 +28,12 @@
         <dependencies>
             <dependency>
                 <groupId>com.spring.cloud</groupId>
-                <artifactId>basic-service</artifactId>
+                <artifactId>basic-dto</artifactId>
                 <version>0.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.spring.cloud</groupId>
-                <artifactId>basic-dao</artifactId>
+                <artifactId>basic-feign</artifactId>
                 <version>0.0.1</version>
             </dependency>
             <dependency>
@@ -42,7 +43,12 @@
             </dependency>
             <dependency>
                 <groupId>com.spring.cloud</groupId>
-                <artifactId>basic-feign</artifactId>
+                <artifactId>basic-dao</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.spring.cloud</groupId>
+                <artifactId>basic-service</artifactId>
                 <version>0.0.1</version>
             </dependency>
         </dependencies>

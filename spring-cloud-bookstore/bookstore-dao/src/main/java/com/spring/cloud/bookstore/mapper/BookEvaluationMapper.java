@@ -1,20 +1,8 @@
 package com.spring.cloud.bookstore.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.spring.cloud.bookstore.domain.BookEvaluation;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface BookEvaluationMapper {
+public interface BookEvaluationMapper extends BaseMapper<BookEvaluation> {
 
-    int deleteByPrimaryKey(Long id);
-
-    int insert(BookEvaluation record);
-
-    int insertSelective(BookEvaluation record);
-
-    BookEvaluation selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(BookEvaluation record);
-
-    int updateByPrimaryKey(BookEvaluation record);
 }

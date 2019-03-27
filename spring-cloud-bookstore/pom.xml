@@ -3,7 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
     <parent>
         <groupId>com.spring.cloud</groupId>
         <artifactId>spring-cloud</artifactId>
@@ -18,9 +17,45 @@
 
     <modules>
         <module>bookstore-domain</module>
+        <module>bookstore-dto</module>
         <module>bookstore-dao</module>
         <module>bookstore-service</module>
         <module>bookstore-controller</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.spring.cloud</groupId>
+                <artifactId>bookstore-domain</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.spring.cloud</groupId>
+                <artifactId>bookstore-dao</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.spring.cloud</groupId>
+                <artifactId>bookstore-service</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.spring.cloud</groupId>
+                <artifactId>bookstore-dto</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.spring.cloud</groupId>
+                <artifactId>basic-feign</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.spring.cloud</groupId>
+            <artifactId>spring-cloud-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,49 +1,49 @@
 package com.spring.cloud.bookstore.controller;
 
-import com.spring.cloud.bookstore.service.IBookEvaluationService;
-import com.spring.cloud.core.bookstore.BookEvaluationDTO;
+import com.spring.cloud.bookstore.dto.BookEvaluationDTO;
+import com.spring.cloud.bookstore.service.BookEvaluationService;
+import com.spring.cloud.core.response.RestResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * @ClassName: BookEvaluationController
- * @Author: zzy
- * @Date: 2019/3/25 15:04
- * @Version: 1.2
- * @Description:
- */
-
-@Slf4j
-@Api(value = "BookEvaluationController", description = "书籍评论Api")
+@Api(description = "书籍评论Api")
 @RestController
-@RequestMapping(value = "/bookEvaluation", method = {RequestMethod.GET, RequestMethod.POST})
+@RequestMapping("/bookEvaluation")
+@AllArgsConstructor
 public class BookEvaluationController {
 
-    @Autowired
-    private IBookEvaluationService bookEvaluationService;
+    private final BookEvaluationService bookEvaluationService;
 
-    @ApiOperation(value = "书籍评论保存接口", notes = "书籍评论保存接口", httpMethod = "POST", tags = "书籍评论Api")
-    @PostMapping(value = "save")
-    public void save(@ApiParam(value = "书籍评论信息", required = true) @RequestBody BookEvaluationDTO dto) {
+    @ApiOperation(value = "书籍评论保存接口", notes = "书籍评论保存接口", tags = "书籍评论Api")
+    @PostMapping("save")
+    public RestResponse save(@RequestBody @Validated(BookEvaluationDTO.SaveGroup.class) BookEvaluationDTO dto) {
         bookEvaluationService.save(dto);
-
+        return RestResponse.OK;
     }
 
-    @ApiOperation(value = "书籍评论修改接口", notes = "书籍评论修改接口", httpMethod = "POST", tags = "书籍评论Api")
-    @PostMapping(value = "update")
-    public void update(@ApiParam(value = "书籍评论信息", required = true) @RequestBody BookEvaluationDTO dto) {
+    @ApiOperation(value = "书籍评论修改接口", notes = "书籍评论修改接口", tags = "书籍评论Api")
+    @PostMapping("update")
+    public RestResponse update(@RequestBody @Validated(BookEvaluationDTO.UpdateGroup.class) BookEvaluationDTO dto) {
         bookEvaluationService.update(dto);
-
+        return RestResponse.OK;
     }
 
-    @ApiOperation(value = "书籍评论查看接口", notes = "书籍评论查看接口", httpMethod = "GET", tags = "书籍评论Api")
-    @GetMapping(value = "findById")
-    public BookEvaluationDTO findById(@ApiParam(value = "书籍评论ID", required = true) Long id) {
-        return bookEvaluationService.findById(id);
+    @ApiOperation(value = "书籍评论查看接口", notes = "书籍评论查看接口", tags = "书籍评论Api")
+    @GetMapping("findById")
+    public RestResponse<BookEvaluationDTO> findById(@ApiParam(value = "书籍评论ID", required = true) @RequestParam Long id) {
+        BookEvaluationDTO bookEvaluationDTO = bookEvaluationService.findById(id);
+        return RestResponse.ok(bookEvaluationDTO);
+    }
+
+    @ApiOperation("书籍评论删除接口")
+    @DeleteMapping
+    public RestResponse delete(@RequestParam Long id) {
+        bookEvaluationService.removeById(id);
+        return RestResponse.OK;
     }
 
 }

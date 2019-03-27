@@ -1,7 +1,7 @@
 package com.spring.cloud.basic.controller;
 
+import com.spring.cloud.basic.dto.UserInfoDTO;
 import com.spring.cloud.basic.service.UserInfoService;
-import com.spring.cloud.core.basic.UserInfoDTO;
 import com.spring.cloud.core.response.RestResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -50,7 +50,7 @@ public class UserInfoController {
 
     @ApiOperation(value = "用户修改接口", notes = "用户修改接口", tags = "用户相关Api")
     @PostMapping("update")
-    public RestResponse update(@ApiParam(value = "用户基础信息", required = true) @RequestBody @Validated(UserInfoDTO.UserInfoUpdateGroup.class) UserInfoDTO dto) {
+    public RestResponse update(@ApiParam(value = "用户基础信息", required = true) @RequestBody @Validated(UserInfoDTO.UpdateGroup.class) UserInfoDTO dto) {
         userInfoService.update(dto);
         return RestResponse.OK;
     }

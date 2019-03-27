@@ -13,6 +13,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.spring.cloud</groupId>
+            <artifactId>basic-dto</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>

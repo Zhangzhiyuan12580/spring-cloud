@@ -3,24 +3,19 @@ package com.spring.cloud.bookstore.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class BookEvaluation {
-
-    /**
-     * 数据ID
-     */
-    private Long id;
+public class BookEvaluation extends BaseDomain{
 
     /**
      * 评论者ID
      */
-    private String commentatorId;
+    private Long commentatorId;
 
     /**
      * 书籍ID
      */
-    private String bookId;
+    private Long bookId;
 
     /**
      * 评论信息

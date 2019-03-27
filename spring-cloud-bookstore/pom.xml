@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.spring.cloud</groupId>
-        <artifactId>spring-cloud-parent</artifactId>
+        <artifactId>spring-cloud</artifactId>
         <version>0.0.1</version>
     </parent>
 

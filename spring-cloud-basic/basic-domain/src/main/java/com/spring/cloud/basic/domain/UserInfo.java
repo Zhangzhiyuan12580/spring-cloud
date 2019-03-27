@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.time.LocalDate;
 
 /**
  * @ClassName: UserInfo
@@ -13,13 +13,10 @@ import javax.persistence.Table;
  * @Version: 1.2
  * @Description:
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "user_info")
+@EqualsAndHashCode(callSuper = true)
 public class UserInfo extends BaseModel {
-
-    private static final long serialVersionUID = 1L;
 
     /**
      * 用户名称
@@ -37,9 +34,9 @@ public class UserInfo extends BaseModel {
     private String phone;
 
     /**
-     * 年龄
+     * 生日
      */
-    private Integer age;
+    private LocalDate birthday;
 
 }
 

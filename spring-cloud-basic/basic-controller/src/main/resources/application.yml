@@ -12,9 +12,6 @@ spring:
     open-in-view: true
     hibernate:
       ddl-auto: update
-      naming:
-        #命名规则保持原有字段方式，不设置如果某个字段里面有大写字母，会变为小写，并且添加上下划线
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
 eureka:
   instance:
@@ -24,6 +21,5 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:1001/eureka
-
 logging:
   level: info

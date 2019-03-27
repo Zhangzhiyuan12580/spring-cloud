@@ -5,9 +5,8 @@
 
     <parent>
         <groupId>com.spring.cloud</groupId>
-        <artifactId>spring-cloud-parent</artifactId>
+        <artifactId>spring-cloud-basic</artifactId>
         <version>0.0.1</version>
-        <relativePath/>
     </parent>
 
     <artifactId>basic-dao</artifactId>
@@ -15,10 +14,13 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!--jpa-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
             <groupId>com.spring.cloud</groupId>

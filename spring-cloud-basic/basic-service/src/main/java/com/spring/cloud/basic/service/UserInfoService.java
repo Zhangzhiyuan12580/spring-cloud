@@ -7,20 +7,13 @@ import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
-/**
- * @ClassName: IUserInfoService
- * @Author: zzy
- * @Date: 2019/3/22 12:00
- * @Version: 1.2
- * @Description:
- */
-public interface IUserInfoService {
+public interface UserInfoService {
 
-    UserInfoDTO findById(Long id) throws Exception;
+    UserInfoDTO findById(Long id);
 
-    void save(UserInfoDTO dto) throws Exception;
+    void save(UserInfoDTO dto);
 
-    void update(UserInfoDTO dto) throws Exception;
+    void update(UserInfoDTO dto);
 
     List<UserInfoDTO> findList(Sort sort, String name, Integer age);
 

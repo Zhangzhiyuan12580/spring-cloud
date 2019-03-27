@@ -4,6 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+
 /**
  * @ClassName: UserInfoDTO
  * @Author: zzy
@@ -12,10 +15,14 @@ import lombok.Data;
  * @Description:
  */
 @Data
-@ApiModel(value = "UserInfoDTO", description = "用户信息DTO")
+@ApiModel(description = "用户信息DTO")
 public class UserInfoDTO {
 
+    public interface UserInfoUpdateGroup {
+    }
+
     @ApiModelProperty("用户Id")
+    @NotNull(groups = {UserInfoUpdateGroup.class})
     private Long id;
 
     @ApiModelProperty("用户名称")
@@ -27,6 +34,6 @@ public class UserInfoDTO {
     @ApiModelProperty("电话")
     private String phone;
 
-    @ApiModelProperty("年龄")
-    private Integer age;
+    @ApiModelProperty("生日")
+    private LocalDate birthday;
 }

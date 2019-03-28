@@ -21,5 +21,3 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:1001/eureka
-logging:
-  level: info

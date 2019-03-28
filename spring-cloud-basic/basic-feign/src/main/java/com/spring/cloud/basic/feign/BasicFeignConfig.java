@@ -1,7 +1,7 @@
 package com.spring.cloud.basic.feign;
 
 import feign.Request;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

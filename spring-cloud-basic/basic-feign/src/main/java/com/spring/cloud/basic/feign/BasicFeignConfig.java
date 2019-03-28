@@ -11,11 +11,11 @@ import org.springframework.context.annotation.Configuration;
  * @Description
  **/
 @Configuration
-@EnableFeignClients(basePackages = {"com.spring.cloud.basic.feign"})
+@EnableFeignClients("com.spring.cloud.basic.feign")
 public class BasicFeignConfig {
 
     @Bean
-    public Request.Options feginOption() {
+    public Request.Options feignOption() {
         return new Request.Options(5000, 60000);
     }
 }

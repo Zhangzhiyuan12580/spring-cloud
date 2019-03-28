@@ -1,6 +1,7 @@
 package com.spring.cloud.basic.feign;
 
 import com.spring.cloud.basic.dto.UserInfoDTO;
+import com.spring.cloud.core.response.RestResponse;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BasicFeignFallBack implements BasicFeign {
     @Override
-    public UserInfoDTO findById(Long id) {
+    public RestResponse<UserInfoDTO> findById(Long id) {
         return null;
     }
 }

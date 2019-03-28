@@ -10,6 +10,7 @@ import com.spring.cloud.bookstore.domain.Book;
 import com.spring.cloud.bookstore.dto.BookDTO;
 import com.spring.cloud.bookstore.mapper.BookMapper;
 import com.spring.cloud.bookstore.service.BookService;
+import com.spring.cloud.core.response.RestResponse;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -43,9 +44,9 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
 
     private void model2Dto(BookDTO dto) {
         if (dto.getAuthorId() != null) {
-            UserInfoDTO user = basicFeign.findById(dto.getAuthorId());
-            if (null != user) {
-                dto.setAuthorName(user.getUserName());
+            RestResponse<UserInfoDTO> user = basicFeign.findById(dto.getAuthorId());
+            if (null != user && user.getCode() == 200 && null != user.getData()) {
+                dto.setAuthorName(user.getData().getUserName());
             }
         }
     }

@@ -1,20 +1,16 @@
 server:
-  port: 1001
+  port: 8761
 eureka:
+  instance:
+    #服务器运行的宿主及其名称
+    hostname: sdpeer1
   client:
     #是否注册到eureka
-    register-with-eureka: false
+    register-with-eureka: true
     #是否检索服务
-    fetch-registry: false
+    fetch-registry: true
     service-url:
-      defaultZone: http://localhost:1001/eureka
+      defaultZone: http://sdpeer2:8762/eureka,http://sdpeer3:8763/eureka
   server:
     #在Eureka服务器获取不到集群里对等服务器上的实例时，需要等待的时间，单位为毫秒
     wait-time-in-ms-when-sync-empty: 5
-
-#HTTP basic 认证
-spring:
-  security:
-    user:
-      name: zzy
-      password: 123456

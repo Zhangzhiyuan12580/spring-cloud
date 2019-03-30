@@ -1,2 +1,7 @@
 1.负载均衡策略
-    （1）
+    （1）RoundRobinRule: 轮询策略 交替访问。
+    （2）RandomRule: 随机选择。
+    （3）BestAvailableRule: 最大可用策略，先过滤故障服务实例，选择并发请求最小的。
+    （4）WeightedResponseTimeRule：带有加权的轮询策略，对各个服务实例响应时间进行加权处理，然后轮询
+    （5）AvailabilityFilteringRule：可用过滤策略，先过滤出有故障的或者并发大于某个阈值的，然后再以线性轮询对过滤后的选出一个
+    （6）ZoneAvoidanceRule：区域感知策略

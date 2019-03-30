@@ -13,8 +13,8 @@ eureka:
     wait-time-in-ms-when-sync-empty: 5
 
 #HTTP basic 认证
-spring:
-  security:
-    user:
-      name: zzy
-      password: 123456
+#spring:
+#  security:
+#    user:
+#      name: zzy
+#      password: 123456

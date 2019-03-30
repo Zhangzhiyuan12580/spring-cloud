@@ -1,0 +1,32 @@
+server:
+  port: 18082
+spring:
+  application:
+    name: ZUUL_PROXY
+
+#eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka
+    #zuul服务无需注册到eureka
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        #加载所有的端点，默认只加载了info、health
+        include: '*'
+zuul:
+  routes:
+    basic:
+      serviceId: spring-cloud-basic
+      path: /spring/cloud/basic/**
+      #默认是true 此参数很重要  确定是否去掉前缀
+      stripPrefix: false
+    bookstore:
+      serviceId: spring-cloud-bookstore
+      path: /spring/cloud/bookstore/**
+      stripPrefix: false
+

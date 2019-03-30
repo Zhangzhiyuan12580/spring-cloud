@@ -1,5 +1,7 @@
 server:
   port: 1003
+  servlet:
+    context-path: /spring/cloud/bookstore
 spring:
   application:
     name: spring-cloud-bookstore
@@ -16,6 +18,7 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:1001/eureka
+
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*Mapper.xml
   type-aliases-package: com.spring.cloud.bookstore.domain.*

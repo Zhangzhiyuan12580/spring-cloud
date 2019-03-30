@@ -23,7 +23,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://sdpeer1:8761/eureka
+      defaultZone: http://localhost:1001/eureka
 
 
 # actuator 微服务健康监控

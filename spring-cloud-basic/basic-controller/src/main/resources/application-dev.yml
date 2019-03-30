@@ -1,5 +1,8 @@
 server:
   port: 1002
+  servlet:
+    context-path: /spring/cloud/basic
+
 spring:
   application:
     name: spring-cloud-basic
@@ -20,4 +23,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://sdpeer1:8761/eureka
+      defaultZone: http://localhost:1001/eureka

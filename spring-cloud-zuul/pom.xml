@@ -9,26 +9,27 @@
         <version>0.0.1</version>
     </parent>
 
-    <groupId>com.spring-cloud</groupId>
-    <artifactId>eureka-discovery</artifactId>
+    <artifactId>spring-cloud-zuul</artifactId>
     <version>0.0.1</version>
-    <name>eureka-discovery</name>
+    <name>spring-cloud-zuul</name>
     <packaging>jar</packaging>
-    <description>eureka-discovery</description>
+    <description>spring-cloud-zuul</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.cloud</groupId>-->
-        <!--<artifactId>spring-cloud-starter-eureka-server</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-security</artifactId>-->
-        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

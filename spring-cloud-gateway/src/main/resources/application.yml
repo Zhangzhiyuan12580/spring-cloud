@@ -1,0 +1,36 @@
+server:
+  port: 18083
+
+  #eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka
+    #zuul服务无需注册到eureka
+    register-with-eureka: true
+
+#spring-cloud-gateway config
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #启用eureka注册
+      routes:
+      #basic服务
+      - id: spring-cloud-basic #id随意定义 不重复即可
+        uri: lb://spring-cloud-basic #lb:// + eureka注册spring.application.name
+        predicates:
+        - Path=/spring/cloud/basic/** #匹配规则 只要以spring/cloud/basic 开头的URL 全部转发至 spring-cloud-basic
+        filters:
+        - StripPrefix=0 #是否去除url的第一个 如/spring/
+
+      #bookstore服务
+      - id: spring-cloud-bookstore
+        uri: lb://spring-cloud-bookstore
+        predicates:
+        - Path=/spring/cloud/bookstore/**
+        filters:
+        - StripPrefix=0

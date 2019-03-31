@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "SPRING-CLOUD-BASIC", fallback = BasicFeignFallBack.class, configuration = BasicFeignConfig.class)
 public interface BasicFeign {
 
-    @RequestMapping("users/findById")
+    @RequestMapping("/spring/cloud/basic/users/findById")
     RestResponse<UserInfoDTO> findById(@RequestParam(value = "id") Long id);
 }

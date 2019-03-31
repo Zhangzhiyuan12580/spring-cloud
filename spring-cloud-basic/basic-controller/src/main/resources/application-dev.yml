@@ -24,3 +24,8 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:1001/eureka
+
+#断路由
+feign:
+  hystrix:
+    enabled: true

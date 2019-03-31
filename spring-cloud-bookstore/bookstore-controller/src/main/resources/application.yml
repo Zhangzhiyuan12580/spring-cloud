@@ -19,6 +19,11 @@ eureka:
     service-url:
       defaultZone: http://localhost:1001/eureka
 
+#断路由
+feign:
+  hystrix:
+    enabled: true
+
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*Mapper.xml
   type-aliases-package: com.spring.cloud.bookstore.domain.*

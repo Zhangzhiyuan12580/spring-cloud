@@ -1,0 +1,44 @@
+##配置中心信息配置
+#spring:
+#  cloud:
+#    config:
+#      #对应配置文件-dev or -prod的前缀 对应 {application} 部分
+#      name: basic
+#      uri: http://localhost:8888
+#      #对应 {profile} 部分
+#      profile: dev
+#      #对应 {label} 部分，即 Git的分支。如果配置中心使用的是本地存储，则该参数无用
+#      label: master
+
+spring:
+  application:
+    name: spring-cloud-basic
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0 # 将采样比例设置为 1.0，也就是全部都需要。默认是 0.1
+  zipkin:
+    base-url: http://localhost:9411/ # 指定了 Zipkin 服务器的地址
+
+#eureka config
+eureka:
+  instance:
+    ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:1001/eureka
+
+#断路由
+feign:
+  hystrix:
+    enabled: true
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: bus-refresh

@@ -4,8 +4,6 @@ server:
     context-path: /spring/cloud/basic
 
 spring:
-  application:
-    name: spring-cloud-basic
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/springcloud?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
@@ -16,16 +14,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-eureka:
-  instance:
-    ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:1001/eureka
-
-#断路由
-feign:
-  hystrix:
-    enabled: true
+  # spring cloud bus config
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+#      enabled: true

@@ -10,19 +10,27 @@ spring:
     url: jdbc:mysql://localhost:3306/springcloud?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: 123456
-eureka:
-  instance:
-    ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:1001/eureka
-
-#断路由
-feign:
-  hystrix:
-    enabled: true
+  #ridis config
+  redis:
+    database: 0
+    # Redis服务器地址
+    host: localhost
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
+    # 连接池最大连接数（使用负值表示没有限制）
+    jedis:
+      pool:
+        max-active: 200
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        # max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 10
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    #连接超时时间（毫秒）
+    timeout: 1000
 
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*Mapper.xml
@@ -33,6 +41,7 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+
 #pagehelper plugin configuration
 #helper-dialect：指定数据库，不指定的话会默认自动检测数据库类型
 #reasonable：是否启用分页合理化。如果启用，当pagenum<1时，会自动查询第一页的数据，当pagenum>pages时，自动查询最后一页数据；不启用的，以上两种情况都会返回空数据

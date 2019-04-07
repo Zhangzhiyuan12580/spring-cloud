@@ -18,6 +18,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode(callSuper = true)
 public class UserInfo extends BaseModel {
 
+    private static final long serialVersionUID = -1741432596282489116L;
     /**
      * 用户名称
      */

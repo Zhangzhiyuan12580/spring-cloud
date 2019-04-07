@@ -29,6 +29,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public UserInfoDTO findById(Long id) {
+        System.out.println("我查询了");
         Optional<UserInfo> userInfoOptional = userInfoRepository.findById(id);
         UserInfo user = userInfoOptional.orElseThrow(() -> new ServiceException("不存在id为" + id + "的数据"));
         UserInfoDTO dto = new UserInfoDTO();

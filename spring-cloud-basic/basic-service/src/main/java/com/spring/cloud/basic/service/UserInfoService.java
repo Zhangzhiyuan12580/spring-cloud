@@ -22,4 +22,6 @@ public interface UserInfoService {
     List<UserInfoDTO> findList(Sort sort, String name, Integer age);
 
     Page<UserInfoDTO> findPage(Pageable pageable, String name, Integer age);
+
+    void deleteById(Long id);
 }

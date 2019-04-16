@@ -1,6 +1,7 @@
 package com.spring.cloud.basic.domain;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -20,7 +21,8 @@ import java.util.Date;
 class BaseModel implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "idGenerator")
+    @GenericGenerator(name = "idGenerator", strategy = "assigned")
     private Long id;
 
     @CreatedDate

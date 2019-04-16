@@ -4,11 +4,14 @@ import com.google.common.collect.Lists;
 import com.spring.cloud.basic.dao.UserInfoRepository;
 import com.spring.cloud.basic.domain.UserInfo;
 import com.spring.cloud.basic.dto.UserInfoDTO;
+import com.spring.cloud.basic.dto.UserMsg;
 import com.spring.cloud.basic.service.UserInfoService;
+import com.spring.cloud.basic.service.UserMsgSender;
 import com.spring.cloud.core.exception.ServiceException;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -27,6 +30,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     private final UserInfoRepository userInfoRepository;
 
+    /**
+     * 发送消息到kafka
+     */
+    @Autowired
+    private UserMsgSender userMsgSender;
+
+
     @Override
     public UserInfoDTO findById(Long id) {
         System.out.println("我查询了");
@@ -42,6 +52,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         UserInfo user = new UserInfo();
         BeanUtils.copyProperties(dto, user);
         userInfoRepository.save(user);
+        userMsgSender.sendMsg(new UserMsg(dto.getId(), UserMsgSender.UPDATE));
     }
 
     @Override
@@ -50,6 +61,13 @@ public class UserInfoServiceImpl implements UserInfoService {
         UserInfo user = userInfoOptional.orElseThrow(() -> new ServiceException("不存在id为" + dto.getId() + "的数据"));
         BeanUtils.copyProperties(dto, user);
         userInfoRepository.save(user);
+        userMsgSender.sendMsg(new UserMsg(dto.getId(), UserMsgSender.UPDATE));
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        userInfoRepository.deleteById(id);
+        userMsgSender.sendMsg(new UserMsg(id, UserMsgSender.DELETE));
     }
 
     @Override

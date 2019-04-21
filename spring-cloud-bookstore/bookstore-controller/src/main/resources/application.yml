@@ -8,6 +8,14 @@ spring:
     url: jdbc:mysql://localhost:3306/springcloud?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: 123456
+  #安全认证
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          my-oauth-provider:
+#            user-info-uri: http:localhost:8900/auth/user
+#            token-uri: http:localhost:8900/auth/oauth/token
 eureka:
   instance:
     ip-address: true
@@ -34,14 +42,9 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
 
+#安全认证
 security:
   oauth2:
-    client:
-      clientId: bd1c0a783ccdd1c9b9e4
-      clientSecret: 1a9030fbca47a5b2c28e92f19050bb77824b5ad1
-      accessTokenUri: https://github.com/login/oauth/access_token
-      userAuthorizationUri: https://github.com/login/oauth/authorize
-      clientAuthenticationScheme: form
     resource:
-      userInfoUri: https://api.github.com/user
-      preferTokenInfo: false
+      user-info-uri: http://localhost:8900/auth/user
+

@@ -1,0 +1,7 @@
+
+获取token
+
+localhost:8900/auth/oauth/token?grant_type=password&username=zhangsan&password=password
+
+
+权限访问
